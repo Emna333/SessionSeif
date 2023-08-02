@@ -1,0 +1,46 @@
+<div class="hero overlay" style="background-image: url('assets/images/bg_3.jpg');">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-9 mx-auto text-center">
+                <h1 class="text-white">Weather</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="site-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <form [formGroup]="weatherForm">
+                    <div class="form-group">
+                        <input type="text" formControlName='city' class="form-control" placeholder="city">
+                    </div>
+                    <div *ngIf="weatherForm.controls['city'].invalid &&
+                     weatherForm.controls['city'].touched">
+                        <div *ngIf="weatherForm.controls['city'].errors.required">
+                            City is required
+                        </div>
+                        
+                    </div>
+                   
+                 
+                    <div class="form-group text-center">
+                        <input type="submit" (click)='weather()' [disabled]="weatherForm.invalid"
+                            class="btn btn-primary py-3 px-5" value="Search">
+                    </div>
+                </form>
+            </div>
+            <div *ngIf="result.temp" class="col-lg-4">
+                <h6 style="color: white">temp : {{result.temp}}</h6>
+                <h6 style="color: white"> pressure : {{result.pressure}}</h6>
+               <div>
+                <img [src]="iconURl">
+               </div>
+              
+
+            </div>
+        </div>
+    </div>
+</div>

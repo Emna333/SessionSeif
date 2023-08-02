@@ -1,0 +1,33 @@
+<app-banner [B]="title"> </app-banner>
+
+<div class="site-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <form [formGroup]="occForm">
+                    <div class="form-group">
+                        <input type="text" class="form-control" formControlName='ch' placeholder="write first Name">
+                    </div>
+                    <div *ngIf="occForm.controls['ch'].invalid &&
+            occForm.controls['ch'].touched ">
+                        <div *ngIf="occForm.controls['ch'].errors.required">
+                            FN is required
+                        </div>
+                    </div>
+                    <!-- <p> {{nbOcc('aaa','a')}} :test de la methode bel string interpolation khaterha  methode mech bevenemt</p> -->
+                    <p>{{deleteSpace('   aliaa    is   the    best  .')}}</p>
+                    <div class="form-group text-center">
+                        <input type="submit" class="btn btn-primary py-3 px-5" (click)="display()" value='Afficher'>
+                        <!-- or [value]="title"  -->
+
+                    </div>
+                </form>
+            </div>
+            <div *ngFor="let r of result">
+                
+                <p>{{r}}</p>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+
+<app-banner [B]="x"></app-banner>
+
+<div class="widget-next-match container">
+    <table class="table custom-table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Owner</th>
+                <th>Foundation</th>
+                <th>Stadium</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr >
+                <td>{{findedTeam.id}}</td>
+                <td><strong class="text-white">{{findedTeam.name}}</strong></td>
+                <td>{{findedTeam.owner}}</td>
+                <td>{{findedTeam.foundation}}</td>
+                <td>{{findedTeam.stadium}}</td>
+                
+            </tr>

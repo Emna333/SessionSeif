@@ -1,0 +1,28 @@
+<div class="widget-next-match container">
+    <table class="table custom-table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Country</th>
+                <th>Capacity</th>
+                <th>Actions</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let stadium of stadiums">
+                <td>{{stadium.id}}</td>
+                <td><strong class="text-white">{{stadium.name}}</strong></td>
+                <td>{{stadium.country}}</td>
+                <td>{{stadium.capacity}}</td>
+               
+                <td>
+                    <button class="btn btn-success" (click)="goToDisplay(stadium.id)">Display</button>
+                    <button class="btn btn-warning">Edit</button>
+                    <button class="btn btn-danger"  (click)="deleteStadiumAdmin(stadium.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
