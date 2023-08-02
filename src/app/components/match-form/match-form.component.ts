@@ -13,7 +13,7 @@ export class MatchFormComponent implements OnInit {
   matchForm: FormGroup;
   matchId: any;
   match: any = {};
-  title: any = 'Add match';
+  title: any = 'Add Match';
   matches: any = [];
 
   constructor(private activatedRoute: ActivatedRoute,
