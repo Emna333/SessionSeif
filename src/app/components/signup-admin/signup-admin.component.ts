@@ -20,9 +20,7 @@ export class SignupAdminComponent implements OnInit {
       firstName: ['', [Validators.required, Validators.minLength(3)]],//validateur obligatoire
       lastName: ['',[Validators.required, Validators.minLength(5)]],
       email: ['',[Validators.required, Validators.email]],
-      pwd: ['',[Validators.required ,
-        // Validators.pattern(‘(1=.*[a-z])(1=.*[A-Z])(1=.*[0-9])(1=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{5,10}’)]
-      ]],
+      pwd: ['',[Validators.required]],
       tel:['',[Validators.required]],
       img:[''],
     })

@@ -1,7 +1,7 @@
 //import express module
 //aamelna npm i express
 //express framework BE JS
-const express = require ('express');
+const express = require('express');
 
 //creates express application
 const app = express();
@@ -139,7 +139,7 @@ app.post('/api/matches', (req, res) => {
 
 
 
-//Business logic Get All matches , !!!! tanseech l  '/' !!!!
+//Business logic Get All matches , 
 app.get('/api/matches', (req, res) => {
     console.log('here into BL:Get all matches');
     Match.find().then((docs) => {
@@ -158,10 +158,7 @@ app.get('/api/matches/:id', (req, res) => {
     });
 
 });
-// let findedMatch = matchesTab.find(
-//     (obj) => { return obj.id == id }
-// )
-// res.json({ match: findedMatch });
+
 
 
 //Business logic Delete match by id (:id=> is a param changeable )
@@ -170,7 +167,6 @@ app.delete('/api/matches/:id', (req, res) => {
     let id = req.params.id;
     Match.deleteOne({ _id: id }).then((response) => {
         console.log('Here response after delete', response);
-        //tjik fel bash mtaa lbackend ser
         if (response.deletedCount == 1) {
             res.json({ message: 'Deleted with success' });
         } else {
@@ -201,7 +197,7 @@ app.put('/api/matches', (req, res) => {
 
         }
     });
-
+    //with no mongoDB:
     // for (let i = 0; i < matchesTab.length; i++) {
     //     if (matchesTab[i].id == match.id) {
     //         matchesTab[i] = match;
@@ -215,7 +211,7 @@ app.put('/api/matches', (req, res) => {
 
 
 //Business logic Search Matches  
-// search bel get (1ere methode)
+// search with get (1ere methode)
 app.get('/api/matches/:sc1/:sc2', (req, res) => {
     console.log('here into BL:search Matches');
     let x = req.params.sc1;
@@ -226,14 +222,14 @@ app.get('/api/matches/:sc1/:sc2', (req, res) => {
         res.json({ findedMatches: docs });
     });
 
-
+    //with no mongoDB:
     // let findedMatches = matchesTab.filter(
     //     (obj) => { return obj.scoreOne == match.scoreOne || obj.scoreTwo == match.scoreTwo }
     // );
     // res.json({ findedMatches: findedMatches });
 
 });
-//search bel post (2ème methode)
+//search with post (2ème methode)
 app.post('/api/matches', (req, res) => {
     console.log('here into BL:search Matches');
     let match = req.body;
@@ -261,7 +257,7 @@ app.post('/api/teams', (req, res) => {
 
 });
 
-//Business logic Get All matches , !!!! tanseech l  '/' !!!!
+//Business logic Get All matches , 
 app.get('/api/teams', (req, res) => {
     console.log('here into BL:Get all teams');
     Team.find().then(
@@ -270,7 +266,7 @@ app.get('/api/teams', (req, res) => {
         });
 });
 
-//Business logic Get match by id (:id=> is a param changeable )
+//Business logic Get match by id 
 app.get('/api/teams/:id', (req, res) => {
     console.log('here into BL:Get team By ID');
     //recupere l'identifiant mel path
@@ -281,13 +277,12 @@ app.get('/api/teams/:id', (req, res) => {
 });
 
 
-//Business logic Delete match by id (:id=> is a param changeable )
+//Business logic Delete match by id 
 app.delete('/api/teams/:id', (req, res) => {
     console.log('here into BL:delete team By ID');
     let id = req.params.id;
     Team.deleteOne({ _id: id }).then((response) => {
         console.log('Here response after delete', response);
-        //tjik fel bash mtaa lbackend ser
         if (response.deletedCount == 1) {
             res.json({ message: 'Deleted with success' });
         } else {
@@ -298,7 +293,7 @@ app.delete('/api/teams/:id', (req, res) => {
 });
 
 
-//Business logic Edit team by id (:id=> is a param changeable )
+//Business logic Edit team by id
 app.put('/api/teams', (req, res) => {
     console.log('here into BL:Edit team ');
     let newTeam = req.body;
@@ -321,7 +316,7 @@ let playersTab = [{ id: 1, name: 'Ibrahimovic', age: '30', number: 7, position: 
 { id: 2, name: 'kovic', age: '30', number: 3, position: 'attaquant' },
 { id: 3, name: 'msekni', age: '33', number: 9, position: 'attaquant' }]
 
-//Business logic Add player by id (:id=> is a param changeable )
+//Business logic Add player by id
 app.post('/api/players', (req, res) => {
     console.log('here into BL:Add player ');
     let matchObj = new Player(req.body);
@@ -330,7 +325,7 @@ app.post('/api/players', (req, res) => {
 
 });
 
-//Business logic Get All playeres , !!!! tanseech l  '/' !!!!
+//Business logic Get All playeres , 
 app.get('/api/players', (req, res) => {
     console.log('here into BL:Get all players');
     Player.find().then(
@@ -340,10 +335,10 @@ app.get('/api/players', (req, res) => {
 });
 
 
-//Business logic Get player by id (:id=> is a param changeable )
+//Business logic Get player by id 
 app.get('/api/players/:id', (req, res) => {
     console.log('here into BL:Get player By ID');
-    //recupere l'identifiant mel path
+    //get id from path
     let id = req.params.id;
     Player.findOne({ _id: id }).then((doc) => {
         res.json({ findedPlayer: doc });
@@ -351,13 +346,12 @@ app.get('/api/players/:id', (req, res) => {
 
 });
 
-//Business logic Delete player by id (:id=> is a param changeable )
+//Business logic Delete player by id 
 app.delete('/api/players/:id', (req, res) => {
     console.log('here into BL:delete player By ID');
     let id = req.params.id;
     Player.deleteOne({ _id: id }).then((response) => {
         console.log('Here response after delete', response);
-        //tjik fel bash mtaa lbackend ser
         if (response.deletedCount == 1) {
             res.json({ message: 'Deleted with success' });
         } else {
@@ -369,7 +363,7 @@ app.delete('/api/players/:id', (req, res) => {
 
 
 
-//Business logic Edit player by id (:id=> is a param changeable )
+//Business logic Edit player by id 
 app.put('/api/players', (req, res) => {
     console.log('here into BL:Edit player ');
     let newPlayer = req.body;
@@ -406,6 +400,11 @@ app.post('/users/signup', multer({ storage: storageConfig }).single('img'),
             });
         });
     });
+
+//basic signup:
+  // let user=new User(req.body);
+    // user.save();
+    // res.json({msg:'Added with success'});
 
 //Business Logic:Login
 // 0=> Email Error
@@ -444,10 +443,10 @@ app.post('/users/login', (req, res) => {
 
 
 
-
+    //basic login (with no bcrypt ) 
     // User.findOne({ email: req.body.email, pwd: req.body.pwd }).then((doc) => {
-    //     //pwd 1: tebaa lcollection
-    //     //pwd 2: tebaa lform
+    //     //pwd 1: of collection
+    //     //pwd 2: of form
     //     console.log('here response after login', doc);
     //     if (doc) {
     //         res.json({ msg: 'Welcome' });
@@ -459,9 +458,7 @@ app.post('/users/login', (req, res) => {
 
 
 
-    // let user=new User(req.body);
-    // user.save();
-    // res.json({msg:'Added with success'});
+  
 });
 
 
@@ -473,11 +470,11 @@ app.post('/api/weather/searchCity', (req, res) => {
     let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`;
     axios.get(apiURL).then((response) => {
         console.log('here response from weather Api', response);
-        let data=response.data;
-        let  result={ 
-            temp:response.data.main.temp,
-            pressure:response.data.main.pressure,
-            icon:data.weather[0].icon,
+        let data = response.data;
+        let result = {
+            temp: response.data.main.temp,
+            pressure: response.data.main.pressure,
+            icon: data.weather[0].icon,
         };
         res.json({ weather: result });
 

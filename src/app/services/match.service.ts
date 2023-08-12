@@ -27,7 +27,6 @@ export class MatchService {
     return this.httpClient.post<{ msg: string }>(this.matchURL, matchObj);
 
   }
-  //match obj fih les valeurs et l'id donc yaaref win yhot
   //Response:Object/Boolean/String
   editMatch(matchObj) {
     return this.httpClient.put<{ message: string }>(this.matchURL, matchObj);

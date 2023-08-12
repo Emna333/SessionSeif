@@ -26,7 +26,6 @@ export class PlayerService {
     return this.httpClient.post(this.playerURL, playerObj);
 
   }
-  //player obj fih les valeurs et l'id donc yaaref win yhot
   //Response:Object/Boolean/String
   editPlayer(playerObj) {
     return this.httpClient.put(this.playerURL, playerObj);

@@ -26,7 +26,6 @@ export class TeamService {
     return this.httpClient.post(this.teamURL, teamObj);
 
   }
-  //team obj fih les valeurs et l'id donc yaaref win yhot
   //Response:Object/Boolean/String
   editTeam(teamObj) {
     return this.httpClient.put(this.teamURL, teamObj);

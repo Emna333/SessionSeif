@@ -12,7 +12,6 @@ export class AsterixPipe implements PipeTransform {
       X = ch[i];
       for (let j = 0; j < this.V.length; j++) {
         if (ch[i].toLowerCase() == this.V[j]) {
-          // to lowercase prédefinie bech lmaj ywali min
           X = '*';
           break;
         }

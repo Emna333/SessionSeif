@@ -16,7 +16,6 @@ export class StadiumInfoComponent implements OnInit {
     let stadiums = JSON.parse(localStorage.getItem('stadiums') || '[]');
 
     this.findedStadium = stadiums.find(
-      //obj:variable locale d'une methode
       (obj: any) => { return obj.id == this.stadiumId }
     )
   }
